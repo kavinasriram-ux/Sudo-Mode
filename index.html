@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amma — A Story in Years</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Intro Screen -->
+  <div id="intro-screen">
+    <div class="intro-bg"></div>
+    <div class="intro-content">
+      <p class="intro-label">A tribute for</p>
+      <h1 class="intro-title">Amma</h1>
+      <p class="intro-sub">Every year you've been in our lives</p>
+      <button id="begin-btn" class="begin-btn">Begin the Journey</button>
+    </div>
+    <div class="intro-years">
+      <span>2020</span><span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span>
+    </div>
+  </div>
+
+  <!-- Main Slideshow App -->
+  <div id="app" class="hidden">
+
+    <!-- Top Bar (Google Slides style) -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <div class="app-logo">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <rect x="2" y="2" width="18" height="18" rx="3" fill="#c9956a"/>
+            <rect x="5" y="5" width="12" height="8" rx="1.5" fill="white" opacity="0.9"/>
+            <rect x="5" y="15" width="7" height="2" rx="1" fill="white" opacity="0.6"/>
+          </svg>
+        </div>
+        <div class="topbar-title-group">
+          <span class="topbar-title">Amma — A Story in Years</span>
+          <span class="topbar-subtitle">Family Tribute · 2020–2026</span>
+        </div>
+      </div>
+      <div class="topbar-right">
+        <button class="toolbar-btn" id="present-btn" title="Present slideshow">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><polygon points="3,2 13,8 3,14" fill="currentColor"/></svg>
+          Present
+        </button>
+      </div>
+    </header>
+
+    <div class="workspace">
+
+      <!-- Left Panel: Slide Thumbnails -->
+      <aside class="slides-panel">
+        <div class="panel-header">Slides</div>
+        <div id="thumbnail-list"></div>
+        <button class="add-slide-btn" id="add-slide-btn">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><line x1="7" y1="1" x2="7" y2="13" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><line x1="1" y1="7" x2="13" y2="7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          Add Year
+        </button>
+      </aside>
+
+      <!-- Center: Slide Canvas -->
+      <main class="canvas-area">
+        <div class="canvas-wrapper">
+          <div class="slide-canvas" id="slide-canvas">
+
+            <!-- Slide Content -->
+            <div class="slide-inner" id="slide-inner">
+
+              <div class="slide-photo-zone" id="photo-zone">
+                <div class="photo-placeholder" id="photo-placeholder">
+                  <div class="photo-placeholder-icon">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                      <rect x="3" y="7" width="30" height="22" rx="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                      <circle cx="12" cy="15" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                      <path d="M3 25 L10 18 L16 24 L22 17 L33 27" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+                    </svg>
+                  </div>
+                  <p>Click to add a photo</p>
+                  <span>JPG, PNG, WEBP</span>
+                  <input type="file" id="photo-input" accept="image/*" />
+                </div>
+                <img id="slide-photo" class="slide-photo hidden" alt="Year photo" />
+                <button class="change-photo-btn hidden" id="change-photo-btn">Change Photo</button>
+              </div>
+
+              <div class="slide-text-zone">
+                <div class="slide-year-label" id="slide-year-display">2020</div>
+                <h2 class="slide-title" id="slide-title" contenteditable="true" data-placeholder="Add a title...">A Year to Remember</h2>
+                <p class="slide-caption" id="slide-caption" contenteditable="true" data-placeholder="Write something beautiful about this year...">Write something meaningful about Amma this year. What made it special? What do you remember most?</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Slide nav arrows -->
+          <div class="slide-nav">
+            <button class="nav-btn" id="prev-btn">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 4L6 9L11 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <span class="slide-counter" id="slide-counter">1 / 7</span>
+            <button class="nav-btn" id="next-btn">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7 4L12 9L7 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <!-- Right Panel: Slide Settings -->
+      <aside class="settings-panel">
+        <div class="panel-header">Slide Settings</div>
+
+        <div class="setting-group">
+          <label class="setting-label">Year</label>
+          <input type="number" id="year-input" class="setting-input" min="1900" max="2100" value="2020" />
+        </div>
+
+        <div class="setting-group">
+          <label class="setting-label">Slide Theme</label>
+          <div class="theme-picker" id="theme-picker">
+            <button class="theme-swatch active" data-theme="warm" style="background: linear-gradient(135deg, #f5ede0, #e8c9a0);" title="Warm"></button>
+            <button class="theme-swatch" data-theme="blush" style="background: linear-gradient(135deg, #f5e6e8, #e8b4c0);" title="Blush"></button>
+            <button class="theme-swatch" data-theme="sage" style="background: linear-gradient(135deg, #e6ede6, #b4cdb4);" title="Sage"></button>
+            <button class="theme-swatch" data-theme="midnight" style="background: linear-gradient(135deg, #1a1a2e, #2d2d4e);" title="Midnight"></button>
+            <button class="theme-swatch" data-theme="ivory" style="background: linear-gradient(135deg, #faf8f3, #ede8df);" title="Ivory"></button>
+            <button class="theme-swatch" data-theme="dusk" style="background: linear-gradient(135deg, #2e1f3e, #5c3d6e);" title="Dusk"></button>
+          </div>
+        </div>
+
+        <div class="setting-group">
+          <label class="setting-label">Photo</label>
+          <button class="upload-btn-side" id="upload-btn-side">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1v8M4 4l3-3 3 3M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Upload Photo
+          </button>
+        </div>
+
+        <div class="setting-group">
+          <label class="setting-label">Photo Position</label>
+          <select class="setting-select" id="layout-select">
+            <option value="left">Photo Left</option>
+            <option value="right">Photo Right</option>
+            <option value="top">Photo Top</option>
+            <option value="background">Full Background</option>
+          </select>
+        </div>
+
+        <div class="setting-group">
+          <label class="setting-label">Slide Notes</label>
+          <textarea class="setting-textarea" id="slide-notes" placeholder="Private notes for this slide..."></textarea>
+        </div>
+
+        <div class="setting-group">
+          <button class="delete-slide-btn" id="delete-slide-btn">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 4h10M5 4V2h4v2M5 6v5M9 6v5M3 4l1 8h6l1-8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Delete Slide
+          </button>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- Presentation Mode -->
+  <div id="present-mode" class="hidden">
+    <div class="present-slide" id="present-slide">
+      <div class="present-photo-wrap" id="present-photo-wrap">
+        <img id="present-photo" alt="" />
+      </div>
+      <div class="present-text" id="present-text">
+        <div class="present-year" id="present-year">2020</div>
+        <h2 class="present-title" id="present-title"></h2>
+        <p class="present-caption" id="present-caption"></p>
+      </div>
+    </div>
+    <div class="present-controls">
+      <button class="present-nav" id="present-prev">&#8592;</button>
+      <span class="present-counter" id="present-counter">1 / 7</span>
+      <button class="present-nav" id="present-next">&#8594;</button>
+      <button class="present-exit" id="present-exit">&#x2715; Exit</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
