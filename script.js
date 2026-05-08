@@ -445,4 +445,3 @@ function renderPresent() {
   presentCaption.style.color = colors.caption;
   presentPhotoWrap.style.background = slide.photo ? 'transparent' : '#e8ddd0';
 }
-
