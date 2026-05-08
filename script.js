@@ -6,21 +6,21 @@
 const YEARS = [2020, 2021, 2022, 2023, 2024, 2025, 2026];
 
 const DEFAULT_TITLES = {
-  2020: 'The Year We Held On',
+  2020: 'Covid Times Were Amazing',
   2021: 'Finding Light Again',
-  2022: 'A Year of Growth',
-  2023: 'Moments That Mattered',
-  2024: 'Full of Grace',
-  2025: 'Together, Always',
-  2026: 'Our Greatest Gift'
+  2022: 'New Years',
+  2023: 'Poonal Year',
+  2024: 'Family First!',
+  2025: 'Always Together, Forever',
+  2026: 'Our Greatest Gift is you, Amma!'
 };
 
 const DEFAULT_CAPTIONS = {
-  2020: 'Even in the hardest of times, Amma was our constant — steady, loving, and full of warmth.',
-  2021: 'You reminded us what truly matters. Your presence made everything a little brighter.',
-  2022: 'Watching you flourish this year filled our hearts. We are so proud to call you ours.',
-  2023: 'The little moments with you are the ones we\'ll treasure forever.',
-  2024: 'You moved through this year with so much love and grace. We noticed every bit of it.',
+  2020: 'Even in the hardest of times, you were there for us, feeding, bathing, and helping us get onto Zoom!',
+  2021: 'You reminded us what truly matters, our family.',
+  2022: 'Having you in our lives makes our lives a lot better, more than you will ever know',
+  2023: 'The little moments with you are the ones we will treasure forever.',
+  2024: 'You took care of Kavin for 10 years!!',
   2025: 'No matter where life takes us, we always find our way back to you.',
   2026: 'You are, and always will be, the heart of our family.'
 };
